@@ -67,8 +67,11 @@
 			<artifactId>bootstrap</artifactId>
 			<version>3.3.7-1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
