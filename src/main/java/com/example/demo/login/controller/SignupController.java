@@ -46,6 +46,7 @@ public class SignupController {
 	public String postSignUp(@ModelAttribute SignupForm form, 
 			BindingResult bindingResult, 
 			Model model) {
+		
 		if(bindingResult.hasErrors()) {
 			//エラーがある場合ユーザー登録画面に戻る
 			return getSignUp(form, model);
