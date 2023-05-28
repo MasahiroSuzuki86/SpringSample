@@ -9,12 +9,15 @@ import com.example.demo.dao.UserDao;
 @Controller
 public class testController {
 	
-	  @Autowired
-	  private UserDao userDao;
+	@Autowired
+	private UserDao userDao;
+
 	
 	@GetMapping("/test")
 	public String getTest() {
-		userDao.method();
+
+		userDao.testSelect();
+
 		return "test";
 	}
 }

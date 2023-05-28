@@ -12,6 +12,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserDao {
 	
+<<<<<<< HEAD
+	 @Autowired
+	  private JdbcTemplate jdbc;
+
+	  public void testSelect() {
+	    List<Map<String, Object>> list = jdbc.queryForList("SELECT * FROM user");
+	    list.forEach(System.out::println);
+	  }
+
+=======
 	  @Autowired
 	  private JdbcTemplate jdbc;
 	
@@ -19,4 +29,5 @@ public class UserDao {
 		    List<Map<String, Object>> list = jdbc.queryForList("SELECT * FROM user");
 		    list.forEach(System.out::println);
 		  }
+>>>>>>> refs/remotes/origin/main
 }
