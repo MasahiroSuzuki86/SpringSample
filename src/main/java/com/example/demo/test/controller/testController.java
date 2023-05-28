@@ -11,10 +11,13 @@ public class testController {
 	
 	@Autowired
 	private UserDao userDao;
+
 	
 	@GetMapping("/test")
 	public String getTest() {
+
 		userDao.testSelect();
+
 		return "test";
 	}
 }
