@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @EnableAutoConfiguration
 @Component
 public class UserDao {
-	
+
 	 @Autowired
 	  private JdbcTemplate jdbc;
 
