@@ -6,5 +6,11 @@
 </head>
 <body>
 	<h1>Hello World</h1>
+	
+	<form method="post" action="/test">
+		<div>従業員IDを入力：</div>
+		<input type="text" name="employeeId" th:value="${employeeId}" />
+		<input type="submit" value="クリック" />
+	</form>
 </body>
 </html>
