@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet"></link>
+<script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+<title>SignUp</title>
+</head>
+<body>
+	<div class="col-sm-5">
+		<div class="page-header">
+			<h1>ユーザー登録画面</h1>
+		</div>
+		<form method="post" th:action="@{/signup}" >
+			<table class="table table-bordered table-hover">
+				<tr>
+					<th class="active col-sm-3">ユーザID</th>
+					<td>
+						<div class="form-group">
+							<input type="text" class="form-control" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="active">パスワード</th>
+					<td>
+						<div class="form-group">
+							<input type="text" class="form-control" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="active">ユーザー名</th>
+					<td>
+						<div class="form-group">
+							<input type="text" class="form-control" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="form-group">性別</th>
+					<td>
+						<div class="form-group">
+							<div th:each="item : ${radioSex}">
+								<input type="radio" name="sex"
+									th:text="${item.key}"
+									th:value="${item.value}" />
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="form-group">住所</th>
+					<td>
+						<div class="form-group">
+							<input type="text" class="form-control" />
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
