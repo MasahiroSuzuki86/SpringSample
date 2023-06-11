@@ -12,13 +12,14 @@
 		<div class="page-header">
 			<h1>ユーザー登録画面</h1>
 		</div>
-		<form method="post" th:action="@{/signup}" >
+		<form method="post" th:action="@{/signup}" th:object="${signupForm}}">
 			<table class="table table-bordered table-hover">
 				<tr>
 					<th class="active col-sm-3">ユーザID</th>
 					<td>
 						<div class="form-group">
-							<input type="text" class="form-control" />
+							<input type="text" class="form-control" 
+								th:field="*{userId}" />
 						</div>
 					</td>
 				</tr>
@@ -26,7 +27,8 @@
 					<th class="active">パスワード</th>
 					<td>
 						<div class="form-group">
-							<input type="text" class="form-control" />
+							<input type="text" class="form-control" 
+								th:field="*{password}" />
 						</div>
 					</td>
 				</tr>
@@ -34,31 +36,56 @@
 					<th class="active">ユーザー名</th>
 					<td>
 						<div class="form-group">
-							<input type="text" class="form-control" />
+							<input type="text" class="form-control"
+								th:field="*{name}" />
 						</div>
 					</td>
 				</tr>
 				<tr>
-					<th class="form-group">性別</th>
+					<th class="active">性別</th>
 					<td>
 						<div class="form-group">
 							<div th:each="item : ${radioSex}">
 								<input type="radio" name="sex"
 									th:text="${item.key}"
-									th:value="${item.value}" />
+									th:value="${item.value}"
+									th:field="*{sex}" />
 							</div>
 						</div>
 					</td>
 				</tr>
 				<tr>
-					<th class="form-group">住所</th>
+					<th class="active">住所</th>
 					<td>
 						<div class="form-group">
-							<input type="text" class="form-control" />
+							<input type="text" class="form-control"
+								th:field="*{address}" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="active">年齢</th>
+					<td>
+						<div class="form-group">
+							<input type="text" class="form-control"
+								th:field="*{age}" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="active">誕生日</th>
+					<td>
+						<div class="form-group">
+							<input type="text" class="form-control"
+								placeholder="yyyy/MM/dd"
+								th:field="*{birthday}" />
 						</div>
 					</td>
 				</tr>
 			</table>
+			<button class="btn btn-primary" type="submit">
+				ユーザー登録
+			</button>
 		</form>
 	</div>
 </body>
