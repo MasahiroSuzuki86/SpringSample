@@ -12,7 +12,7 @@
 		<div class="page-header">
 			<h1>ユーザー登録画面</h1>
 		</div>
-		<form method="post" th:action="@{/signup}" th:object="${signupForm}}">
+		<form method="post" th:action="@{/signup}" th:object="${signupForm}">
 			<table class="table table-bordered table-hover">
 				<tr>
 					<th class="active col-sm-3">ユーザID</th>
@@ -45,7 +45,7 @@
 					<th class="active">性別</th>
 					<td>
 						<div class="form-group">
-							<div th:each="item : ${radioSex}">
+							<div th:each="item : ${sex}">
 								<input type="radio" name="sex"
 									th:text="${item.key}"
 									th:value="${item.value}"

@@ -80,6 +80,11 @@
 		  <artifactId>bootstrap</artifactId>
 		  <version>3.3.7-1</version>
 		</dependency>
+		<!-- validation -->
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
