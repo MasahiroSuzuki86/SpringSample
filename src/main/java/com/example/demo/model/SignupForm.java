@@ -17,11 +17,11 @@ import lombok.Data;
 public class SignupForm {
 	
 	@NotBlank
-	@Size(max=50)
+	@Size(max=30)
 	private String userId;
 	
 	@NotBlank
-	@Size(min=4, max=50)
+	@Size(max=30)
 	@Pattern(regexp = "^[a-zA-Z0-9]+$")
 	private String password;
 	
