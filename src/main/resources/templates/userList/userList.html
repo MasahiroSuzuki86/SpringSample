@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+<title>ユーザー一覧</title>
+</head>
+<body class="text-center">
+	<div class="col-sm-5">
+		<div class="page-header">
+			<h2>ユーザー一覧</h2>
+		</div>
+		<!-- 検索フォーム -->
+		<div>
+			<form th:action="@{userSearch}" th:object="${userListForm}"
+				method="post">
+				<table class="table table-bordered table-hover">
+					<tr>
+						<th class="active col-sm-3"><label>名前</label></th>
+						<td>
+							<div class="form-group">
+								<input type="text" th:field="*{name}" />
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th class="active"><label>性別</label></th>
+						<td>
+							<div class="form-group">
+								<div th:each="item:${sex}">
+									<input type="radio" name="sex" th:text="${item.value}"
+										th:value="${item.key}" />
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<div>
+					<button class="btn btn-primary" type="submit" th:text="${bottonName}">
+					</button>
+				</div>
+			</form>
+		</div>
+		<!-- 検索フォームここまで -->
+		<!-- 検索結果表示 -->
+		<div>
+			<table class="table">
+				<tr>
+					<th><label>id</label></th>
+					<th><label>名前</label></th>
+					<th><label>性別</label></th>
+					<th><label>住所</label></th>
+					<th><label>年齢</label></th>
+					<th><label>生年月日</label></th>
+				</tr>
+				<tr th:if="${!#lists.isEmpty(userList)}" th:each="user:${userList}">
+					<td th:text="${user.id}"></td>
+					<td th:text="${user.name}"></td>
+					<td th:text="${user.sex}"></td>
+					<td th:text="${user.address}"></td>
+					<td th:text="${user.age}"></td>
+					<td th:text="${user.birthday}"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
