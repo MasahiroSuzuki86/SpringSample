@@ -14,7 +14,22 @@ public class UserDao {
 
 	 @Autowired
 	  private JdbcTemplate jdbc;
+	 
+	 public List<Map<String, Object>>searchAll() {
+		 
+		 //SQL
+		 String query = "SELECT * FROM user";
+		 
+		 //SQL実行
+		 List<Map<String, Object>> list = jdbc.queryForList(query);
+		 
+		 
+		 return list;
+	 }
 
+	 /**
+	  * データベース疎通確認用処理
+	  */
 	  public void testSelect() {
 	    List<Map<String, Object>> list = jdbc.queryForList("SELECT * FROM user");
 	    list.forEach(System.out::println);
