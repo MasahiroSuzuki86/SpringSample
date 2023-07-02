@@ -31,16 +31,21 @@
 						<th class="active"><label>性別</label></th>
 						<td>
 							<div class="form-group">
-								<div th:each="item:${sex}">
-									<input type="radio" name="sex" th:text="${item.value}"
-										th:value="${item.key}" />
+								<div th:each="item:${sexRadio}">
+									<label>
+										<input type="radio" name="sex" th:text="${item.value}"
+											th:value="${item.key}" 
+											th:checked="${item.key == sex}"
+										/>
+									</label>
 								</div>
 							</div>
 						</td>
 					</tr>
 				</table>
 				<div>
-					<button class="btn btn-primary" type="submit" th:text="${bottonName}">
+					<button class="btn btn-primary" type="submit">
+						検索
 					</button>
 				</div>
 			</form>
