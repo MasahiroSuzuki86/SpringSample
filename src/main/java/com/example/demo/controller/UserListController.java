@@ -26,14 +26,15 @@ public class UserListController {
 
 	@GetMapping("/init")
 	public String init(Model model, UserListForm form) {
+		
+		//ラジオボタン初期化
 		radio = createRadio();
-		model.addAttribute("sex", radio);
+		model.addAttribute("sexRadio", radio);
+		model.addAttribute("sex", "0");
 		
 		//ユーザー全件検索
 		List<User> userList = userSearchService.searchAll();
 		model.addAttribute("userList", userList);
-		
-		model.addAttribute("bottonName", "検索");
 		
 		return "userList/userList";
 	}
@@ -49,8 +50,9 @@ public class UserListController {
 		//ラジオボタン用のマップを準備
 		Map<String, String> radio = new LinkedHashMap<>();
 		
-		radio.put("0", "男性");
-		radio.put("1", "女性");
+		radio.put("0", "全て");
+		radio.put("1", "男性");
+		radio.put("2", "女性");
 		
 		return radio;
 	}
