@@ -19,11 +19,19 @@ import com.example.demo.service.UserSearchService;
 @RequestMapping("/userList")
 public class UserListController {
 	
+	/** ラジオボタン表示用の情報を保持する変数 */
 	private Map<String, String> radio;
 	
 	@Autowired
 	private UserSearchService userSearchService;
 
+	/**
+	 * Get通信を処理するメソッド
+	 * http://localhost:8080/userList/init を処理する
+	 * @param model
+	 * @param form
+	 * @return
+	 */
 	@GetMapping("/init")
 	public String init(Model model, UserListForm form) {
 		radio = createRadio();
@@ -38,12 +46,23 @@ public class UserListController {
 		return "userList/userList";
 	}
 	
+	/**
+	 * Post通信を処理するメソッド
+	 *　http://localhost:8080/userList/userSearch を処理する
+	 * @param model
+	 * @param form
+	 * @return
+	 */
 	@PostMapping("/userSearch")
 	public String search(Model model, UserListForm form) {
-		
+		System.out.println(form);
 		return "userList/userList";
 	}
 	
+	/**
+	 * ラジオボタン表示用の情報を詰めるメソッド
+	 * @return
+	 */
 	private Map<String, String> createRadio() {
 		
 		//ラジオボタン用のマップを準備
