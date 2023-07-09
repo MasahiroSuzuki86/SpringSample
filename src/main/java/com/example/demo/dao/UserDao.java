@@ -4,17 +4,19 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-@EnableAutoConfiguration
 @Component
 public class UserDao {
 
 	 @Autowired
 	  private JdbcTemplate jdbc;
 	 
+	 /**
+	  * ユーザ-全件検索するメソッド
+	  * @return
+	  */
 	 public List<Map<String, Object>>searchAll() {
 		 
 		 //SQL
@@ -26,7 +28,7 @@ public class UserDao {
 		 
 		 return list;
 	 }
-
+	 
 	 /**
 	  * データベース疎通確認用処理
 	  */

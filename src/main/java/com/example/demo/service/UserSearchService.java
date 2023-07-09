@@ -18,14 +18,22 @@ import com.example.demo.data.User;
 @Service
 public class UserSearchService {
 	
+	/**　DBアクセス用のクラス */
 	@Autowired
 	private UserDao dao;
 	
+	/**
+	 * ユーザを全件検索するメソッド
+	 * @return
+	 */
 	public List<User> searchAll() {
 		
+		/** 戻り値用の変数 */
 		List<User> userList = new ArrayList<User>();
 		
+		/** DB検索 */
 		List<Map<String, Object>> result = dao.searchAll();
+		
 		for(int i = 0; i < result.size(); i++) {
 			int id = (Integer)result.get(i).get("id");
 			String name = (String)result.get(i).get("name");
