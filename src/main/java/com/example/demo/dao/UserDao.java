@@ -17,7 +17,7 @@ public class UserDao {
 	  * ユーザ-全件検索するメソッド
 	  * @return
 	  */
-	 public List<Map<String, Object>>searchAll() {
+	 public List<Map<String, Object>> searchAll() {
 		 
 		 //SQL
 		 String query = "SELECT * FROM user";
@@ -25,6 +25,24 @@ public class UserDao {
 		 //SQL実行
 		 List<Map<String, Object>> list = jdbc.queryForList(query);
 		 
+		 
+		 return list;
+	 }
+	 
+	 /**
+	  * ユーザ検索するメソッド
+	  * @return
+	  */
+	 public List<Map<String, Object>> search(String name, String sex) {
+		 
+		 String query = "SELECT * FROM user WHERE name like ? AND sex like ?";
+		 
+		 if (sex.equals("all")) {
+			 sex = "%";
+		 }
+		 
+		 //SQL実行
+		 List<Map<String, Object>> list = jdbc.queryForList(query, "%" + name + "%", sex);
 		 
 		 return list;
 	 }

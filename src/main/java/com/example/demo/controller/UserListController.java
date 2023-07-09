@@ -38,7 +38,7 @@ public class UserListController {
 		//ラジオボタン初期化
 		radio = createRadio();
 		model.addAttribute("sexRadio", radio);
-		model.addAttribute("sex", "0");
+		model.addAttribute("sex", "all");
 		
 		//ユーザー全件検索
 		List<User> userList = userSearchService.searchAll();
@@ -56,7 +56,16 @@ public class UserListController {
 	 */
 	@PostMapping("/userSearch")
 	public String search(Model model, UserListForm form) {
+		
 		System.out.println(form);
+		
+		radio = createRadio();
+		model.addAttribute("sexRadio", radio);
+		model.addAttribute("sex", form.getSex());
+		
+		List<User> userList = userSearchService.searchUser(form.getName(), form.getSex());
+		model.addAttribute("userList", userList);
+		
 		return "userList/userList";
 	}
 	
@@ -69,9 +78,9 @@ public class UserListController {
 		//ラジオボタン用のマップを準備
 		Map<String, String> radio = new LinkedHashMap<>();
 		
-		radio.put("0", "全て");
-		radio.put("1", "男性");
-		radio.put("2", "女性");
+		radio.put("all", "全て");
+		radio.put("man", "男性");
+		radio.put("woman", "女性");
 		
 		return radio;
 	}

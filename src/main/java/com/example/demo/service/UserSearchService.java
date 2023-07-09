@@ -28,11 +28,33 @@ public class UserSearchService {
 	 */
 	public List<User> searchAll() {
 		
-		/** 戻り値用の変数 */
-		List<User> userList = new ArrayList<User>();
-		
 		/** DB検索 */
 		List<Map<String, Object>> result = dao.searchAll();
+		
+		return getUserList(result);
+	}
+	
+	/**
+	 * ユーザを名前と性別で検索するメソッド
+	 * @param name
+	 * @param sex
+	 * @return
+	 */
+	public List<User> searchUser(String name, String sex) {
+		
+		List<Map<String, Object>> result = dao.search(name, sex);
+		return getUserList(result);
+	}
+	
+	/**
+	 * 検索結果をUserクラスのListに詰める
+	 * @param result
+	 * @return
+	 */
+	private List<User> getUserList(List<Map<String, Object>> result) {
+		
+		//戻り値用のリスト
+		List<User> userList = new ArrayList<User>();
 		
 		for(int i = 0; i < result.size(); i++) {
 			int id = (Integer)result.get(i).get("id");
@@ -55,6 +77,7 @@ public class UserSearchService {
 		}
 		
 		return userList;
+		
 	}
 
 }
