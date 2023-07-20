@@ -33,9 +33,9 @@
 							<div class="form-group">
 								<div th:each="item:${sexRadio}">
 									<label>
-										<input type="radio" name="sex" th:text="${item.value}"
+										<input type="radio" th:text="${item.value}"
 											th:value="${item.key}" 
-											th:checked="${item.key == sex}"
+											th:field="*{sex}"
 										/>
 									</label>
 								</div>

@@ -38,7 +38,7 @@ public class UserListController {
 		//ラジオボタン初期化
 		radio = createRadio();
 		model.addAttribute("sexRadio", radio);
-		model.addAttribute("sex", "all");
+		form.setSex("man");
 		
 		//ユーザー全件検索
 		List<User> userList = userSearchService.searchAll();
