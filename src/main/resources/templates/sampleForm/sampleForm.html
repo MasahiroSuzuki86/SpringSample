@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>SampleForm</title>
+</head>
+<body>
+
+	<h1>SampleForm</h1>
+	<form th:action="@{post}" th:object="${sampleForm}" method="post">
+		<table>
+			<tr>
+				<th>
+					<label>userName</label>
+				</th>
+				<td>
+					<input type="text" th:field="*{userName}" />
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<label>message</label>
+				</th>
+				<td>
+					<textarea rows="10" cols="80" th:field="*{message}" th:placeholder="メッセージを入力してください" >
+					</textarea>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<label>date</label>
+				</th>
+				<td>
+					<input type="date" th:field="*{date}" />
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<label>radio</label>
+				</th>
+				<td>
+					<th:block th:each="radio:${radio}">
+						<label>
+							<input type="radio" th:text="${radio.value}"
+								th:value="${radio.key}"
+								th:field="*{radio}"
+							/>
+						</label>
+					</th:block>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<label>checkBox</label>
+				</th>
+				<td>
+					<label th:each="checkBox:${checkBox}">
+                		<input type="checkbox" 
+                			th:value="${checkBox.key}" 
+                			th:text="${checkBox.value}"
+                			th:field="*{checkBox}"
+                			/>
+             		</label>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<label>pulldown</label>
+				</th>
+				<td>
+					<select name="pulldown">
+    					<option 
+    						th:each="pulldown:${pulldown}" 
+    						th:value="${pulldown.key}" 
+    						th:text="${pulldown.value}"
+    						th:field="*{pulldown}"
+    						>
+    					</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<input type="submit"/>
+	</form>
+</body>
+</html>
