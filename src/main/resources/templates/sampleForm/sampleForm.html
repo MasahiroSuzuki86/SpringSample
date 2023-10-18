@@ -5,7 +5,6 @@
 <title>SampleForm</title>
 </head>
 <body>
-
 	<h1>SampleForm</h1>
 	<form th:action="@{post}" th:object="${sampleForm}" method="post">
 		<table>
@@ -81,6 +80,9 @@
 			</tr>
 		</table>
 		<input type="submit"/>
+	</form>
+	<form action="" method="get">
+		<button th:href="@{../}" class="button">別のページに遷移</button>
 	</form>
 </body>
 </html>
