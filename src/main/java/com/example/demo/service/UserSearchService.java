@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.demo.data.User;
 
 /**
- * ユーザー検索サービスクラス
+ * ユーザー検索サービスインターフェース
  * @author suzukimasahiro
  *
  */

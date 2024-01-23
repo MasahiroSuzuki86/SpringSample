@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.UserDao;
 import com.example.demo.data.User;
+import com.example.demo.service.UserSearchService;
 
 /**
  * ユーザー検索サービスクラス
@@ -16,7 +17,7 @@ import com.example.demo.data.User;
  *
  */
 @Service
-public class UserSearchServiceImpl {
+public class UserSearchServiceImpl implements UserSearchService{
 	
 	/**　DBアクセス用のクラス */
 	@Autowired
