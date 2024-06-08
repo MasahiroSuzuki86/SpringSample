@@ -46,7 +46,7 @@ public class LoginUserDao {
 			String email = (String)result.get(i).get("email");
 			
 			loginUser.setId(id);
-			loginUser.setEmail(userName);
+			loginUser.setUserName(userName);
 			loginUser.setPassword(password);
 			loginUser.setEmail(email);
 		}
